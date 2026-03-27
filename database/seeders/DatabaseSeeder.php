@@ -2,6 +2,8 @@
 
 namespace Database\Seeders;
 
+use App\Models\Category;
+use App\Models\Product;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
@@ -38,5 +40,16 @@ class DatabaseSeeder extends Seeder
             ]
         );
         $viewer->assignRole('viewer');
+
+        $categories = Category::factory()->count(5)->create([
+            'created_by' => $admin->id,
+        ]);
+
+        $categories->each(function ($category) use ($admin) {
+            Product::factory()->count(3)->create([
+                'category_id' => $category->id,
+                'created_by' => $admin->id,
+            ]);
+        });
     }
 }

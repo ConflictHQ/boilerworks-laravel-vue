@@ -11,6 +11,6 @@ Route::middleware('guest')->group(function () {
     Route::post('register', [RegisterController::class, 'store']);
 });
 
-Route::middleware('auth:sanctum')->group(function () {
+Route::middleware('auth')->group(function () {
     Route::post('logout', [LoginController::class, 'destroy'])->name('logout');
 });

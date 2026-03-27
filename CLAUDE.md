@@ -11,6 +11,7 @@ Read it before writing any code.
 - **ORM**: Eloquent (PostgreSQL 16)
 - **Auth**: Session-based (Laravel's built-in auth, no Sanctum)
 - **Authorization**: Spatie Laravel Permission (group-based roles)
+- **Admin**: Filament v5 (admin role only, at `/admin`)
 - **Jobs**: Laravel Queues (Redis driver)
 - **Cache/Sessions**: Redis 7
 - **CSS**: Tailwind CSS 4
@@ -23,6 +24,7 @@ Read it before writing any code.
 | App | http://localhost:8000 |
 | Health | http://localhost:8000/up |
 | Status | http://localhost:8000/status |
+| Admin | http://localhost:8000/admin |
 | Vite HMR | http://localhost:5173 |
 | Mailpit | http://localhost:8026 |
 | MinIO | http://localhost:9003 |

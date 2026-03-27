@@ -1,0 +1,35 @@
+{
+    "$schema": "https://www.schemastore.org/package.json",
+    "private": true,
+    "type": "module",
+    "scripts": {
+        "build": "vite build",
+        "dev": "vite",
+        "lint": "eslint resources/js/",
+        "lint:fix": "eslint resources/js/ --fix",
+        "format": "prettier --write 'resources/js/**/*.{ts,vue}'",
+        "format:check": "prettier --check 'resources/js/**/*.{ts,vue}'",
+        "typecheck": "vue-tsc --noEmit"
+    },
+    "devDependencies": {
+        "@eslint/js": "^10.0.1",
+        "@tailwindcss/vite": "^4.2.2",
+        "@types/node": "^25.5.0",
+        "autoprefixer": "^10.4.27",
+        "axios": "^1.11.0",
+        "concurrently": "^9.0.1",
+        "eslint": "^10.1.0",
+        "eslint-plugin-vue": "^10.8.0",
+        "laravel-vite-plugin": "^2.0.0",
+        "prettier": "^3.8.1",
+        "tailwindcss": "^4.2.2",
+        "typescript": "^6.0.2",
+        "vite": "^7.0.7",
+        "vue-tsc": "^3.2.6"
+    },
+    "dependencies": {
+        "@inertiajs/vue3": "^3.0.0",
+        "@vitejs/plugin-vue": "^6.0.5",
+        "vue": "^3.5.31"
+    }
+}

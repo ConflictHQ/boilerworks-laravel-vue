@@ -7,8 +7,20 @@ const form = useForm({
     name: '',
     description: '',
     status: 'draft',
-    states: [] as Array<{ name: string; label: string; is_initial: boolean; is_final: boolean; color: string }>,
-    transitions: [] as Array<{ from: string; to: string; label: string; conditions: Array<{ type: string; value: string }>; actions: Array<{ type: string; config: Record<string, string> }> }>,
+    states: [] as Array<{
+        name: string;
+        label: string;
+        is_initial: boolean;
+        is_final: boolean;
+        color: string;
+    }>,
+    transitions: [] as Array<{
+        from: string;
+        to: string;
+        label: string;
+        conditions: Array<{ type: string; value: string }>;
+        actions: Array<{ type: string; config: Record<string, string> }>;
+    }>,
 });
 
 function submit() {

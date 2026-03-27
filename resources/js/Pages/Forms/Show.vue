@@ -10,7 +10,9 @@ defineProps<{
         slug: string;
         description: string | null;
         status: string;
-        schema: { fields: Array<{ name: string; label: string; type: string; required?: boolean }> };
+        schema: {
+            fields: Array<{ name: string; label: string; type: string; required?: boolean }>;
+        };
         submissions_count: number;
         creator: { name: string } | null;
         created_at: string;
@@ -93,7 +95,8 @@ function destroy(uuid: string) {
                 <span
                   class="rounded-full px-2 py-0.5 text-xs font-medium"
                   :class="{
-                    'bg-green-900/50 text-green-300': form.status === 'published',
+                    'bg-green-900/50 text-green-300':
+                      form.status === 'published',
                     'bg-yellow-900/50 text-yellow-300': form.status === 'draft',
                     'bg-gray-800 text-gray-400': form.status === 'archived',
                   }"
@@ -142,7 +145,9 @@ function destroy(uuid: string) {
           >
             <span class="text-xs text-gray-500">{{ idx + 1 }}</span>
             <span class="text-sm text-white">{{ field.label }}</span>
-            <span class="rounded bg-gray-700 px-1.5 py-0.5 text-xs text-gray-400">{{ field.type }}</span>
+            <span class="rounded bg-gray-700 px-1.5 py-0.5 text-xs text-gray-400">{{
+              field.type
+            }}</span>
             <span
               v-if="field.required"
               class="text-xs text-red-400"

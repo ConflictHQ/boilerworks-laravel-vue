@@ -9,7 +9,13 @@ defineProps<{
         name: string;
         description: string | null;
         status: string;
-        states: Array<{ name: string; label: string; is_initial: boolean; is_final: boolean; color: string }>;
+        states: Array<{
+            name: string;
+            label: string;
+            is_initial: boolean;
+            is_final: boolean;
+            color: string;
+        }>;
         transitions: Array<{ from: string; to: string; label: string }>;
         instances_count: number;
         creator: { name: string } | null;
@@ -82,7 +88,8 @@ function destroy(uuid: string) {
               <span
                 class="rounded-full px-2 py-0.5 text-xs font-medium"
                 :class="{
-                  'bg-green-900/50 text-green-300': workflow.status === 'published',
+                  'bg-green-900/50 text-green-300':
+                    workflow.status === 'published',
                   'bg-yellow-900/50 text-yellow-300': workflow.status === 'draft',
                   'bg-gray-800 text-gray-400': workflow.status === 'archived',
                 }"
@@ -102,7 +109,13 @@ function destroy(uuid: string) {
             v-for="state in workflow.states"
             :key="state.name"
             class="rounded-full px-3 py-1 text-xs font-medium"
-            :class="state.is_initial ? 'bg-blue-900/50 text-blue-300' : state.is_final ? 'bg-purple-900/50 text-purple-300' : 'bg-gray-800 text-gray-300'"
+            :class="
+              state.is_initial
+                ? 'bg-blue-900/50 text-blue-300'
+                : state.is_final
+                  ? 'bg-purple-900/50 text-purple-300'
+                  : 'bg-gray-800 text-gray-300'
+            "
           >
             {{ state.label }}
             <span

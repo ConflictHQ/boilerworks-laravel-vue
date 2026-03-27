@@ -8,7 +8,17 @@ defineProps<{
         uuid: string;
         name: string;
         description: string | null;
-        schema: { fields: Array<{ name: string; label: string; type: string; required?: boolean; placeholder?: string; default?: string | number | boolean | null; options?: Array<{ label: string; value: string }> }> };
+        schema: {
+            fields: Array<{
+                name: string;
+                label: string;
+                type: string;
+                required?: boolean;
+                placeholder?: string;
+                default?: string | number | boolean | null;
+                options?: Array<{ label: string; value: string }>;
+            }>;
+        };
     };
 }>();
 </script>

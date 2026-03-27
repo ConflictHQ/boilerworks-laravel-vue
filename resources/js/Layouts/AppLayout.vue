@@ -4,7 +4,9 @@ import { computed } from 'vue';
 import FlashMessages from '@/Components/FlashMessages.vue';
 
 const page = usePage();
-const user = computed(() => (page.props.auth as { user: { name: string; email: string } | null })?.user);
+const user = computed(
+    () => (page.props.auth as { user: { name: string; email: string } | null })?.user,
+);
 const features = computed(
     () => page.props.features as { forms: boolean; workflows: boolean; search: boolean },
 );

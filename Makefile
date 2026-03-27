@@ -26,10 +26,10 @@ lint-fix:
 	cd docker && docker compose exec vite npm run format
 
 test:
-	cd docker && docker compose exec backend php artisan test --parallel
+	cd docker && docker compose exec -e APP_ENV=testing backend php artisan test --parallel
 
 coverage:
-	cd docker && docker compose exec backend php artisan test --coverage --min=80
+	cd docker && docker compose exec -e APP_ENV=testing backend php artisan test --coverage --min=80
 
 console:
 	cd docker && docker compose exec backend php artisan tinker

@@ -10,7 +10,16 @@ const props = defineProps<{
         slug: string;
         description: string | null;
         status: string;
-        schema: { fields: Array<{ name: string; label: string; type: string; required: boolean; placeholder: string; options: Array<{ label: string; value: string }> }> };
+        schema: {
+            fields: Array<{
+                name: string;
+                label: string;
+                type: string;
+                required: boolean;
+                placeholder: string;
+                options: Array<{ label: string; value: string }>;
+            }>;
+        };
     };
 }>();
 

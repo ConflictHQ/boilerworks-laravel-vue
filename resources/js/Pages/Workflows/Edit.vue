@@ -9,8 +9,20 @@ const props = defineProps<{
         name: string;
         description: string | null;
         status: string;
-        states: Array<{ name: string; label: string; is_initial: boolean; is_final: boolean; color: string }>;
-        transitions: Array<{ from: string; to: string; label: string; conditions: Array<{ type: string; value: string }>; actions: Array<{ type: string; config: Record<string, string> }> }>;
+        states: Array<{
+            name: string;
+            label: string;
+            is_initial: boolean;
+            is_final: boolean;
+            color: string;
+        }>;
+        transitions: Array<{
+            from: string;
+            to: string;
+            label: string;
+            conditions: Array<{ type: string; value: string }>;
+            actions: Array<{ type: string; config: Record<string, string> }>;
+        }>;
     };
 }>();
 

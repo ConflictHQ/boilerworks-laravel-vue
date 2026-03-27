@@ -28,9 +28,8 @@ function logout() {
           <img
             src="/images/logo-dark.svg"
             alt="Boilerworks"
-            class="h-7"
+            class="h-8"
           >
-          <span class="text-lg font-semibold text-white">Boilerworks</span>
         </Link>
       </div>
       <nav class="flex-1 space-y-1 px-3 py-4">

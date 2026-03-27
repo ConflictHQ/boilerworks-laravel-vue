@@ -8,11 +8,23 @@ const form = useForm({
     slug: '',
     description: '',
     status: 'draft',
-    schema: { fields: [] as Array<{ name: string; label: string; type: string; required: boolean; placeholder: string; options: Array<{ label: string; value: string }> }> },
+    schema: {
+        fields: [] as Array<{
+            name: string;
+            label: string;
+            type: string;
+            required: boolean;
+            placeholder: string;
+            options: Array<{ label: string; value: string }>;
+        }>,
+    },
 });
 
 function generateSlug() {
-    form.slug = form.name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+    form.slug = form.name
+        .toLowerCase()
+        .replace(/[^a-z0-9]+/g, '-')
+        .replace(/(^-|-$)/g, '');
 }
 
 function submit() {

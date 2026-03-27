@@ -115,7 +115,11 @@ function removeTransition(index: number) {
             <button
               type="button"
               class="rounded px-2 py-0.5 text-xs"
-              :class="state.is_initial ? 'bg-blue-900/50 text-blue-300' : 'text-gray-500 hover:text-white'"
+              :class="
+                state.is_initial
+                  ? 'bg-blue-900/50 text-blue-300'
+                  : 'text-gray-500 hover:text-white'
+              "
               @click="toggleInitial(idx)"
             >
               Start
@@ -123,7 +127,11 @@ function removeTransition(index: number) {
             <button
               type="button"
               class="rounded px-2 py-0.5 text-xs"
-              :class="state.is_final ? 'bg-purple-900/50 text-purple-300' : 'text-gray-500 hover:text-white'"
+              :class="
+                state.is_final
+                  ? 'bg-purple-900/50 text-purple-300'
+                  : 'text-gray-500 hover:text-white'
+              "
               @click="toggleFinal(idx)"
             >
               End

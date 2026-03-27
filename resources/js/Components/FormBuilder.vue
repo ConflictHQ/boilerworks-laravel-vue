@@ -104,7 +104,9 @@ function removeOption(fieldIndex: number, optIndex: number) {
         <div class="flex items-center gap-2">
           <span class="text-xs text-gray-500">{{ index + 1 }}.</span>
           <span class="text-sm font-medium text-white">{{ field.label }}</span>
-          <span class="rounded bg-gray-700 px-1.5 py-0.5 text-xs text-gray-400">{{ field.type }}</span>
+          <span class="rounded bg-gray-700 px-1.5 py-0.5 text-xs text-gray-400">{{
+            field.type
+          }}</span>
         </div>
         <div class="flex gap-1">
           <button
@@ -136,7 +138,9 @@ function removeOption(fieldIndex: number, optIndex: number) {
           <input
             :value="field.label"
             class="w-full rounded border border-gray-600 bg-gray-900 px-2 py-1 text-sm text-white"
-            @input="updateField(index, 'label', ($event.target as HTMLInputElement).value)"
+            @input="
+              updateField(index, 'label', ($event.target as HTMLInputElement).value)
+            "
           >
         </div>
         <div>
@@ -144,7 +148,9 @@ function removeOption(fieldIndex: number, optIndex: number) {
           <input
             :value="field.name"
             class="w-full rounded border border-gray-600 bg-gray-900 px-2 py-1 text-sm text-white"
-            @input="updateField(index, 'name', ($event.target as HTMLInputElement).value)"
+            @input="
+              updateField(index, 'name', ($event.target as HTMLInputElement).value)
+            "
           >
         </div>
         <div class="flex items-end gap-3">
@@ -153,7 +159,13 @@ function removeOption(fieldIndex: number, optIndex: number) {
               type="checkbox"
               :checked="field.required"
               class="rounded border-gray-600 bg-gray-900 text-indigo-500"
-              @change="updateField(index, 'required', ($event.target as HTMLInputElement).checked)"
+              @change="
+                updateField(
+                  index,
+                  'required',
+                  ($event.target as HTMLInputElement).checked,
+                )
+              "
             >
             Required
           </label>
@@ -173,13 +185,27 @@ function removeOption(fieldIndex: number, optIndex: number) {
             :value="opt.label"
             placeholder="Label"
             class="flex-1 rounded border border-gray-600 bg-gray-900 px-2 py-1 text-sm text-white"
-            @input="updateOption(index, optIdx, 'label', ($event.target as HTMLInputElement).value)"
+            @input="
+              updateOption(
+                index,
+                optIdx,
+                'label',
+                ($event.target as HTMLInputElement).value,
+              )
+            "
           >
           <input
             :value="opt.value"
             placeholder="Value"
             class="flex-1 rounded border border-gray-600 bg-gray-900 px-2 py-1 text-sm text-white"
-            @input="updateOption(index, optIdx, 'value', ($event.target as HTMLInputElement).value)"
+            @input="
+              updateOption(
+                index,
+                optIdx,
+                'value',
+                ($event.target as HTMLInputElement).value,
+              )
+            "
           >
           <button
             type="button"

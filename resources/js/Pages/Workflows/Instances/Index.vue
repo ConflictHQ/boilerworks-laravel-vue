@@ -76,7 +76,9 @@ function transition(workflowUuid: string, instanceUuid: string, toState: string)
               {{ inst.uuid.substring(0, 8) }}
             </td>
             <td class="px-4 py-3">
-              <span class="rounded-full bg-indigo-900/50 px-2 py-0.5 text-xs font-medium text-indigo-300">
+              <span
+                class="rounded-full bg-indigo-900/50 px-2 py-0.5 text-xs font-medium text-indigo-300"
+              >
                 {{ inst.current_state }}
               </span>
             </td>
@@ -87,7 +89,7 @@ function transition(workflowUuid: string, instanceUuid: string, toState: string)
               <Can permission="workflows.transition">
                 <div class="flex gap-1">
                   <button
-                    v-for="t in (availableTransitions[inst.uuid] || [])"
+                    v-for="t in availableTransitions[inst.uuid] || []"
                     :key="t.to"
                     class="rounded bg-gray-800 px-2 py-1 text-xs text-gray-300 hover:bg-gray-700"
                     @click="transition(workflow.uuid, inst.uuid, t.to)"

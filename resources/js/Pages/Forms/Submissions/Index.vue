@@ -4,7 +4,11 @@ import AppLayout from '@/Layouts/AppLayout.vue';
 import Pagination from '@/Components/Pagination.vue';
 
 defineProps<{
-    form: { uuid: string; name: string; schema: { fields: Array<{ name: string; label: string }> } };
+    form: {
+        uuid: string;
+        name: string;
+        schema: { fields: Array<{ name: string; label: string }> };
+    };
     submissions: {
         data: Array<{
             uuid: string;

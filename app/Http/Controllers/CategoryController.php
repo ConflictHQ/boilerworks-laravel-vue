@@ -23,7 +23,7 @@ class CategoryController extends Controller
     public function index(): Response
     {
         return Inertia::render('Categories/Index', [
-            'categories' => Category::withCount('products')
+            'categories' => Category::withCount('items')
                 ->orderBy('created_at', 'desc')
                 ->paginate(25),
         ]);
@@ -46,7 +46,7 @@ class CategoryController extends Controller
     public function show(Category $category): Response
     {
         return Inertia::render('Categories/Show', [
-            'category' => $category->loadCount('products')->load('creator'),
+            'category' => $category->loadCount('items')->load('creator'),
         ]);
     }
 

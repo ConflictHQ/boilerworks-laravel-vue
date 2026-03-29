@@ -10,7 +10,7 @@ defineProps<{
             uuid: string;
             name: string;
             description: string | null;
-            products_count: number;
+            items_count: number;
             created_at: string;
         }>;
         links: Array<{ url: string | null; label: string; active: boolean }>;
@@ -51,7 +51,7 @@ function destroy(uuid: string) {
               Description
             </th>
             <th class="px-4 py-3 font-medium">
-              Products
+              Items
             </th>
             <th class="px-4 py-3 font-medium">
               Actions
@@ -76,7 +76,7 @@ function destroy(uuid: string) {
               {{ category.description ?? '—' }}
             </td>
             <td class="px-4 py-3 text-gray-300">
-              {{ category.products_count }}
+              {{ category.items_count }}
             </td>
             <td class="px-4 py-3">
               <div class="flex gap-2">

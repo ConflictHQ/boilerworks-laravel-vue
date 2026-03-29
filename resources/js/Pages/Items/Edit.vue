@@ -2,35 +2,43 @@
 import { Head, Link, useForm } from '@inertiajs/vue3';
 import AppLayout from '@/Layouts/AppLayout.vue';
 
-defineProps<{
+const props = defineProps<{
+    item: {
+        uuid: string;
+        name: string;
+        description: string | null;
+        price: string;
+        status: string;
+        category_id: number | null;
+    };
     categories: Array<{ id: number; uuid: string; name: string }>;
 }>();
 
 const form = useForm({
-    name: '',
-    description: '',
-    price: '',
-    status: 'active',
-    category_id: '' as string | number,
+    name: props.item.name,
+    description: props.item.description ?? '',
+    price: props.item.price,
+    status: props.item.status,
+    category_id: props.item.category_id ?? ('' as string | number),
 });
 
 function submit() {
-    form.post('/products');
+    form.put(`/items/${props.item.uuid}`);
 }
 </script>
 
 <template>
-  <Head title="New Product" />
+  <Head :title="`Edit ${item.name}`" />
   <AppLayout>
     <div class="mb-6">
       <Link
-        href="/products"
+        :href="`/items/${item.uuid}`"
         class="text-sm text-gray-400 hover:text-white"
       >
-        &larr; Back to Products
+        &larr; Back to {{ item.name }}
       </Link>
       <h1 class="mt-2 text-2xl font-bold text-white">
-        New Product
+        Edit Item
       </h1>
     </div>
     <form
@@ -67,12 +75,6 @@ function submit() {
           rows="3"
           class="w-full rounded-md border border-gray-700 bg-gray-800 px-3 py-2 text-white focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500"
         />
-        <p
-          v-if="form.errors.description"
-          class="mt-1 text-sm text-red-400"
-        >
-          {{ form.errors.description }}
-        </p>
       </div>
       <div class="grid gap-6 sm:grid-cols-2">
         <div>
@@ -89,12 +91,6 @@ function submit() {
             required
             class="w-full rounded-md border border-gray-700 bg-gray-800 px-3 py-2 text-white focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500"
           >
-          <p
-            v-if="form.errors.price"
-            class="mt-1 text-sm text-red-400"
-          >
-            {{ form.errors.price }}
-          </p>
         </div>
         <div>
           <label
@@ -146,10 +142,10 @@ function submit() {
           :disabled="form.processing"
           class="rounded-md bg-indigo-600 px-4 py-2 text-sm font-medium text-white hover:bg-indigo-700 disabled:opacity-50"
         >
-          Create Product
+          Update Item
         </button>
         <Link
-          href="/products"
+          :href="`/items/${item.uuid}`"
           class="rounded-md border border-gray-700 px-4 py-2 text-sm font-medium text-gray-300 hover:bg-gray-800"
         >
           Cancel

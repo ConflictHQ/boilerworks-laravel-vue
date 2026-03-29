@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
-use App\Models\Product;
+use App\Models\Item;
 use App\Models\User;
 use Inertia\Inertia;
 use Inertia\Response;
@@ -14,7 +14,7 @@ class DashboardController extends Controller
     {
         return Inertia::render('Dashboard', [
             'stats' => [
-                'products' => Product::count(),
+                'items' => Item::count(),
                 'categories' => Category::count(),
                 'users' => User::count(),
             ],

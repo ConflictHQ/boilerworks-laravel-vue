@@ -40,10 +40,10 @@ function logout() {
           Dashboard
         </Link>
         <Link
-          href="/products"
+          href="/items"
           class="flex items-center rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-800 hover:text-white"
         >
-          Products
+          Items
         </Link>
         <Link
           href="/categories"

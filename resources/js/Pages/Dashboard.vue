@@ -3,7 +3,7 @@ import { Head } from '@inertiajs/vue3';
 import AppLayout from '@/Layouts/AppLayout.vue';
 
 defineProps<{
-    stats: { products: number; categories: number; users: number };
+    stats: { items: number; categories: number; users: number };
 }>();
 </script>
 
@@ -16,10 +16,10 @@ defineProps<{
     <div class="grid gap-6 sm:grid-cols-3">
       <div class="rounded-lg border border-gray-800 bg-gray-900 p-6">
         <p class="text-sm text-gray-400">
-          Products
+          Items
         </p>
         <p class="mt-1 text-3xl font-bold text-white">
-          {{ stats.products }}
+          {{ stats.items }}
         </p>
       </div>
       <div class="rounded-lg border border-gray-800 bg-gray-900 p-6">

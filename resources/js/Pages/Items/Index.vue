@@ -5,7 +5,7 @@ import Can from '@/Components/Can.vue';
 import Pagination from '@/Components/Pagination.vue';
 
 defineProps<{
-    products: {
+    items: {
         data: Array<{
             uuid: string;
             name: string;
@@ -19,25 +19,25 @@ defineProps<{
 }>();
 
 function destroy(uuid: string) {
-    if (confirm('Delete this product?')) {
-        router.delete(`/products/${uuid}`);
+    if (confirm('Delete this item?')) {
+        router.delete(`/items/${uuid}`);
     }
 }
 </script>
 
 <template>
-  <Head title="Products" />
+  <Head title="Items" />
   <AppLayout>
     <div class="mb-6 flex items-center justify-between">
       <h1 class="text-2xl font-bold text-white">
-        Products
+        Items
       </h1>
-      <Can permission="products.create">
+      <Can permission="items.create">
         <Link
-          href="/products/create"
+          href="/items/create"
           class="rounded-md bg-indigo-600 px-4 py-2 text-sm font-medium text-white hover:bg-indigo-700"
         >
-          New Product
+          New Item
         </Link>
       </Can>
     </div>
@@ -64,50 +64,50 @@ function destroy(uuid: string) {
         </thead>
         <tbody class="divide-y divide-gray-800">
           <tr
-            v-for="product in products.data"
-            :key="product.uuid"
+            v-for="item in items.data"
+            :key="item.uuid"
             class="bg-gray-950 hover:bg-gray-900"
           >
             <td class="px-4 py-3">
               <Link
-                :href="`/products/${product.uuid}`"
+                :href="`/items/${item.uuid}`"
                 class="text-indigo-400 hover:text-indigo-300"
               >
-                {{ product.name }}
+                {{ item.name }}
               </Link>
             </td>
             <td class="px-4 py-3 text-gray-400">
-              {{ product.category?.name ?? '—' }}
+              {{ item.category?.name ?? '—' }}
             </td>
             <td class="px-4 py-3 text-gray-300">
-              ${{ product.price }}
+              ${{ item.price }}
             </td>
             <td class="px-4 py-3">
               <span
                 class="rounded-full px-2 py-0.5 text-xs font-medium"
                 :class="{
-                  'bg-green-900/50 text-green-300': product.status === 'active',
-                  'bg-yellow-900/50 text-yellow-300': product.status === 'draft',
-                  'bg-gray-800 text-gray-400': product.status === 'archived',
+                  'bg-green-900/50 text-green-300': item.status === 'active',
+                  'bg-yellow-900/50 text-yellow-300': item.status === 'draft',
+                  'bg-gray-800 text-gray-400': item.status === 'archived',
                 }"
               >
-                {{ product.status }}
+                {{ item.status }}
               </span>
             </td>
             <td class="px-4 py-3">
               <div class="flex gap-2">
-                <Can permission="products.edit">
+                <Can permission="items.edit">
                   <Link
-                    :href="`/products/${product.uuid}/edit`"
+                    :href="`/items/${item.uuid}/edit`"
                     class="text-sm text-gray-400 hover:text-white"
                   >
                     Edit
                   </Link>
                 </Can>
-                <Can permission="products.delete">
+                <Can permission="items.delete">
                   <button
                     class="text-sm text-red-400 hover:text-red-300"
-                    @click="destroy(product.uuid)"
+                    @click="destroy(item.uuid)"
                   >
                     Delete
                   </button>
@@ -119,7 +119,7 @@ function destroy(uuid: string) {
       </table>
     </div>
     <div class="mt-6">
-      <Pagination :links="products.links" />
+      <Pagination :links="items.links" />
     </div>
   </AppLayout>
 </template>

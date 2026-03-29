@@ -8,7 +8,7 @@ defineProps<{
         uuid: string;
         name: string;
         description: string | null;
-        products_count: number;
+        items_count: number;
         creator: { name: string } | null;
         created_at: string;
     };
@@ -68,10 +68,10 @@ function destroy(uuid: string) {
         <div class="grid gap-4 sm:grid-cols-2">
           <div>
             <dt class="text-sm text-gray-400">
-              Products
+              Items
             </dt>
             <dd class="mt-1 text-white">
-              {{ category.products_count }}
+              {{ category.items_count }}
             </dd>
           </div>
           <div>

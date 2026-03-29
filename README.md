@@ -24,7 +24,7 @@
 - Server-driven SPA via Inertia.js (no client-side router)
 - Session-based auth with login, register, logout
 - Group-based RBAC: admin, editor, viewer roles with granular permissions
-- Products + Categories CRUD with data tables, pagination, flash messages
+- Items + Categories CRUD with data tables, pagination, flash messages
 - Forms engine: JSON schema builder, dynamic form renderer, server-side validation
 - Workflow engine: state machine with conditions, async action dispatch, audit trail
 - Feature toggles (env-based, conditionally loaded routes)

@@ -50,18 +50,18 @@ make shell       # Shell into backend
 ```
 app/
   Enums/             # FormStatus, WorkflowStatus
-  Http/Controllers/  # Auth, Dashboard, Product, Category, FormDefinition, FormSubmission, WorkflowDefinition, WorkflowInstance
+  Http/Controllers/  # Auth, Dashboard, Item, Category, FormDefinition, FormSubmission, WorkflowDefinition, WorkflowInstance
   Http/Middleware/    # HandleInertiaRequests
   Http/Requests/     # Form requests per resource
   Jobs/              # WorkflowActionJob
-  Models/            # User, Product, Category, FormDefinition, FormSubmission, WorkflowDefinition, WorkflowInstance, TransitionLog
+  Models/            # User, Item, Category, FormDefinition, FormSubmission, WorkflowDefinition, WorkflowInstance, TransitionLog
   Rules/             # ValidFormSubmission
   Services/          # WorkflowTransitionService, ConditionEvaluator
   Traits/            # HasAuditTrail, HasUuid
 resources/js/
   Components/        # Can, FlashMessages, Pagination, FieldRenderer, DynamicForm, FormBuilder, WorkflowBuilder
   Layouts/           # AppLayout
-  Pages/             # Auth, Dashboard, Products, Categories, Forms, Workflows
+  Pages/             # Auth, Dashboard, Items, Categories, Forms, Workflows
 ```
 
 ## Rules

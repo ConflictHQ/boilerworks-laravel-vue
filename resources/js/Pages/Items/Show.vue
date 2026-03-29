@@ -4,7 +4,7 @@ import AppLayout from '@/Layouts/AppLayout.vue';
 import Can from '@/Components/Can.vue';
 
 defineProps<{
-    product: {
+    item: {
         uuid: string;
         name: string;
         description: string | null;
@@ -18,39 +18,39 @@ defineProps<{
 }>();
 
 function destroy(uuid: string) {
-    if (confirm('Delete this product?')) {
-        router.delete(`/products/${uuid}`);
+    if (confirm('Delete this item?')) {
+        router.delete(`/items/${uuid}`);
     }
 }
 </script>
 
 <template>
-  <Head :title="product.name" />
+  <Head :title="item.name" />
   <AppLayout>
     <div class="mb-6">
       <Link
-        href="/products"
+        href="/items"
         class="text-sm text-gray-400 hover:text-white"
       >
-        &larr; Back to Products
+        &larr; Back to Items
       </Link>
       <div class="mt-2 flex items-center justify-between">
         <h1 class="text-2xl font-bold text-white">
-          {{ product.name }}
+          {{ item.name }}
         </h1>
         <div class="flex gap-2">
-          <Can permission="products.edit">
+          <Can permission="items.edit">
             <Link
-              :href="`/products/${product.uuid}/edit`"
+              :href="`/items/${item.uuid}/edit`"
               class="rounded-md border border-gray-700 px-4 py-2 text-sm font-medium text-gray-300 hover:bg-gray-800"
             >
               Edit
             </Link>
           </Can>
-          <Can permission="products.delete">
+          <Can permission="items.delete">
             <button
               class="rounded-md border border-red-800 px-4 py-2 text-sm font-medium text-red-400 hover:bg-red-900/50"
-              @click="destroy(product.uuid)"
+              @click="destroy(item.uuid)"
             >
               Delete
             </button>
@@ -65,7 +65,7 @@ function destroy(uuid: string) {
             Description
           </dt>
           <dd class="mt-1 text-white">
-            {{ product.description || '—' }}
+            {{ item.description || '—' }}
           </dd>
         </div>
         <div class="grid gap-4 sm:grid-cols-3">
@@ -74,7 +74,7 @@ function destroy(uuid: string) {
               Price
             </dt>
             <dd class="mt-1 text-white">
-              ${{ product.price }}
+              ${{ item.price }}
             </dd>
           </div>
           <div>
@@ -85,12 +85,12 @@ function destroy(uuid: string) {
               <span
                 class="rounded-full px-2 py-0.5 text-xs font-medium"
                 :class="{
-                  'bg-green-900/50 text-green-300': product.status === 'active',
-                  'bg-yellow-900/50 text-yellow-300': product.status === 'draft',
-                  'bg-gray-800 text-gray-400': product.status === 'archived',
+                  'bg-green-900/50 text-green-300': item.status === 'active',
+                  'bg-yellow-900/50 text-yellow-300': item.status === 'draft',
+                  'bg-gray-800 text-gray-400': item.status === 'archived',
                 }"
               >
-                {{ product.status }}
+                {{ item.status }}
               </span>
             </dd>
           </div>
@@ -99,7 +99,7 @@ function destroy(uuid: string) {
               Category
             </dt>
             <dd class="mt-1 text-white">
-              {{ product.category?.name ?? '—' }}
+              {{ item.category?.name ?? '—' }}
             </dd>
           </div>
         </div>
@@ -109,7 +109,7 @@ function destroy(uuid: string) {
               Created by
             </dt>
             <dd class="mt-1 text-white">
-              {{ product.creator?.name ?? '—' }}
+              {{ item.creator?.name ?? '—' }}
             </dd>
           </div>
           <div>
@@ -117,7 +117,7 @@ function destroy(uuid: string) {
               Created at
             </dt>
             <dd class="mt-1 text-white">
-              {{ new Date(product.created_at).toLocaleString() }}
+              {{ new Date(item.created_at).toLocaleString() }}
             </dd>
           </div>
         </div>

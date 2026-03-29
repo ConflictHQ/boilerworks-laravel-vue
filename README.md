@@ -100,3 +100,7 @@ make shell       # Shell into backend container
 - [CLAUDE.md](CLAUDE.md) -- Agent shim
 - [CONTRIBUTING.md](CONTRIBUTING.md) -- Contribution guide
 - [SECURITY.md](SECURITY.md) -- Security policy
+
+---
+
+Boilerworks is a [Conflict](https://weareconflict.com) brand. CONFLICT is a registered trademark of Conflict LLC.

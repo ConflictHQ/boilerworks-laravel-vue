@@ -81,7 +81,7 @@ services:
     image: postgres:16-alpine
     container_name: boilerworks-laravel-db
     ports:
-      - "5436:5432"
+      - "5432:5432"
     environment:
       - POSTGRES_USER=boilerworks
       - POSTGRES_PASSWORD=boilerworks
@@ -99,7 +99,7 @@ services:
     image: redis:7-alpine
     container_name: boilerworks-laravel-redis
     ports:
-      - "6383:6379"
+      - "6379:6379"
     volumes:
       - laravel_redis:/data
     healthcheck:
@@ -139,8 +139,8 @@ services:
     image: minio/minio
     container_name: boilerworks-laravel-minio
     ports:
-      - "9002:9000"
-      - "9003:9001"
+      - "9000:9000"
+      - "9001:9001"
     environment:
       - MINIO_ROOT_USER=boilerworks
       - MINIO_ROOT_PASSWORD=boilerworks
@@ -153,8 +153,8 @@ services:
     image: axllent/mailpit
     container_name: boilerworks-laravel-mailpit
     ports:
-      - "8026:8025"
-      - "1026:1025"
+      - "8025:8025"
+      - "1025:1025"
     restart: unless-stopped
 
 volumes:

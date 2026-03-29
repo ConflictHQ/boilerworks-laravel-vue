@@ -75,8 +75,8 @@ open http://localhost:8000
 | http://localhost:8000/up | Health check |
 | http://localhost:8000/status | Status page (JSON) |
 | http://localhost:5173 | Vite HMR dev server |
-| http://localhost:8026 | Mailpit (email viewer) |
-| http://localhost:9003 | MinIO console |
+| http://localhost:8025 | Mailpit (email viewer) |
+| http://localhost:9001 | MinIO console |
 
 ## Commands
 

@@ -26,8 +26,8 @@ Read it before writing any code.
 | Status | http://localhost:8000/status |
 | Admin | http://localhost:8000/admin |
 | Vite HMR | http://localhost:5173 |
-| Mailpit | http://localhost:8026 |
-| MinIO | http://localhost:9003 |
+| Mailpit | http://localhost:8025 |
+| MinIO | http://localhost:9001 |
 
 ## Commands
 

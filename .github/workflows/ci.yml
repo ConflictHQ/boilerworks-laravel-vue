@@ -64,6 +64,12 @@ jobs:
           php-version: '8.3'
           extensions: pdo_pgsql, redis
           coverage: xdebug
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run build
       - run: composer install --no-interaction --prefer-dist
       - run: cp .env.example .env && php artisan key:generate
       - run: php artisan test

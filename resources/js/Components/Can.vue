@@ -14,5 +14,5 @@ const can = computed(() => {
 </script>
 
 <template>
-  <slot v-if="can" />
+    <slot v-if="can" />
 </template>

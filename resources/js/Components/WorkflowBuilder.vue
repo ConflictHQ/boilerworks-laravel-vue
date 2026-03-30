@@ -98,142 +98,123 @@ function removeTransition(index: number) {
 </script>
 
 <template>
-  <div class="space-y-6">
-    <div>
-      <h3 class="mb-3 text-sm font-semibold text-gray-300">
-        States
-      </h3>
-      <div class="space-y-2">
-        <div
-          v-for="(state, idx) in states"
-          :key="state.name"
-          class="flex items-center gap-3 rounded border border-gray-700 bg-gray-800 px-3 py-2"
-        >
-          <span class="text-sm text-white">{{ state.label }}</span>
-          <span class="text-xs text-gray-500">({{ state.name }})</span>
-          <div class="ml-auto flex gap-2">
-            <button
-              type="button"
-              class="rounded px-2 py-0.5 text-xs"
-              :class="
-                state.is_initial
-                  ? 'bg-blue-900/50 text-blue-300'
-                  : 'text-gray-500 hover:text-white'
-              "
-              @click="toggleInitial(idx)"
-            >
-              Start
-            </button>
-            <button
-              type="button"
-              class="rounded px-2 py-0.5 text-xs"
-              :class="
-                state.is_final
-                  ? 'bg-purple-900/50 text-purple-300'
-                  : 'text-gray-500 hover:text-white'
-              "
-              @click="toggleFinal(idx)"
-            >
-              End
-            </button>
-            <button
-              type="button"
-              class="text-xs text-red-400 hover:text-red-300"
-              @click="removeState(idx)"
-            >
-              Remove
-            </button>
-          </div>
+    <div class="space-y-6">
+        <div>
+            <h3 class="mb-3 text-sm font-semibold text-gray-300">States</h3>
+            <div class="space-y-2">
+                <div
+                    v-for="(state, idx) in states"
+                    :key="state.name"
+                    class="flex items-center gap-3 rounded border border-gray-700 bg-gray-800 px-3 py-2"
+                >
+                    <span class="text-sm text-white">{{ state.label }}</span>
+                    <span class="text-xs text-gray-500">({{ state.name }})</span>
+                    <div class="ml-auto flex gap-2">
+                        <button
+                            type="button"
+                            class="rounded px-2 py-0.5 text-xs"
+                            :class="
+                                state.is_initial
+                                    ? 'bg-blue-900/50 text-blue-300'
+                                    : 'text-gray-500 hover:text-white'
+                            "
+                            @click="toggleInitial(idx)"
+                        >
+                            Start
+                        </button>
+                        <button
+                            type="button"
+                            class="rounded px-2 py-0.5 text-xs"
+                            :class="
+                                state.is_final
+                                    ? 'bg-purple-900/50 text-purple-300'
+                                    : 'text-gray-500 hover:text-white'
+                            "
+                            @click="toggleFinal(idx)"
+                        >
+                            End
+                        </button>
+                        <button
+                            type="button"
+                            class="text-xs text-red-400 hover:text-red-300"
+                            @click="removeState(idx)"
+                        >
+                            Remove
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-2 flex gap-2">
+                <input
+                    v-model="newStateName"
+                    placeholder="State label"
+                    class="flex-1 rounded border border-gray-700 bg-gray-800 px-3 py-2 text-sm text-white"
+                    @keydown.enter.prevent="addState"
+                />
+                <button
+                    type="button"
+                    class="rounded bg-gray-700 px-4 py-2 text-sm text-white hover:bg-gray-600"
+                    @click="addState"
+                >
+                    Add State
+                </button>
+            </div>
         </div>
-      </div>
-      <div class="mt-2 flex gap-2">
-        <input
-          v-model="newStateName"
-          placeholder="State label"
-          class="flex-1 rounded border border-gray-700 bg-gray-800 px-3 py-2 text-sm text-white"
-          @keydown.enter.prevent="addState"
-        >
-        <button
-          type="button"
-          class="rounded bg-gray-700 px-4 py-2 text-sm text-white hover:bg-gray-600"
-          @click="addState"
-        >
-          Add State
-        </button>
-      </div>
-    </div>
 
-    <div>
-      <h3 class="mb-3 text-sm font-semibold text-gray-300">
-        Transitions
-      </h3>
-      <div class="space-y-2">
-        <div
-          v-for="(t, idx) in transitions"
-          :key="idx"
-          class="flex items-center gap-2 rounded border border-gray-700 bg-gray-800 px-3 py-2 text-sm"
-        >
-          <span class="text-gray-400">{{ t.from }}</span>
-          <span class="text-gray-600">&rarr;</span>
-          <span class="text-white">{{ t.to }}</span>
-          <span class="ml-2 text-xs text-gray-500">({{ t.label }})</span>
-          <button
-            type="button"
-            class="ml-auto text-xs text-red-400 hover:text-red-300"
-            @click="removeTransition(idx)"
-          >
-            Remove
-          </button>
+        <div>
+            <h3 class="mb-3 text-sm font-semibold text-gray-300">Transitions</h3>
+            <div class="space-y-2">
+                <div
+                    v-for="(t, idx) in transitions"
+                    :key="idx"
+                    class="flex items-center gap-2 rounded border border-gray-700 bg-gray-800 px-3 py-2 text-sm"
+                >
+                    <span class="text-gray-400">{{ t.from }}</span>
+                    <span class="text-gray-600">&rarr;</span>
+                    <span class="text-white">{{ t.to }}</span>
+                    <span class="ml-2 text-xs text-gray-500">({{ t.label }})</span>
+                    <button
+                        type="button"
+                        class="ml-auto text-xs text-red-400 hover:text-red-300"
+                        @click="removeTransition(idx)"
+                    >
+                        Remove
+                    </button>
+                </div>
+            </div>
+            <div v-if="stateNames.length >= 2" class="mt-2 flex gap-2">
+                <select
+                    v-model="newTransFrom"
+                    class="rounded border border-gray-700 bg-gray-800 px-3 py-2 text-sm text-white"
+                >
+                    <option value="">From...</option>
+                    <option v-for="name in stateNames" :key="name" :value="name">
+                        {{ name }}
+                    </option>
+                </select>
+                <select
+                    v-model="newTransTo"
+                    class="rounded border border-gray-700 bg-gray-800 px-3 py-2 text-sm text-white"
+                >
+                    <option value="">To...</option>
+                    <option v-for="name in stateNames" :key="name" :value="name">
+                        {{ name }}
+                    </option>
+                </select>
+                <input
+                    v-model="newTransLabel"
+                    placeholder="Label"
+                    class="flex-1 rounded border border-gray-700 bg-gray-800 px-3 py-2 text-sm text-white"
+                    @keydown.enter.prevent="addTransition"
+                />
+                <button
+                    type="button"
+                    class="rounded bg-gray-700 px-4 py-2 text-sm text-white hover:bg-gray-600"
+                    @click="addTransition"
+                >
+                    Add
+                </button>
+            </div>
         </div>
-      </div>
-      <div
-        v-if="stateNames.length >= 2"
-        class="mt-2 flex gap-2"
-      >
-        <select
-          v-model="newTransFrom"
-          class="rounded border border-gray-700 bg-gray-800 px-3 py-2 text-sm text-white"
-        >
-          <option value="">
-            From...
-          </option>
-          <option
-            v-for="name in stateNames"
-            :key="name"
-            :value="name"
-          >
-            {{ name }}
-          </option>
-        </select>
-        <select
-          v-model="newTransTo"
-          class="rounded border border-gray-700 bg-gray-800 px-3 py-2 text-sm text-white"
-        >
-          <option value="">
-            To...
-          </option>
-          <option
-            v-for="name in stateNames"
-            :key="name"
-            :value="name"
-          >
-            {{ name }}
-          </option>
-        </select>
-        <input
-          v-model="newTransLabel"
-          placeholder="Label"
-          class="flex-1 rounded border border-gray-700 bg-gray-800 px-3 py-2 text-sm text-white"
-          @keydown.enter.prevent="addTransition"
-        >
-        <button
-          type="button"
-          class="rounded bg-gray-700 px-4 py-2 text-sm text-white hover:bg-gray-600"
-          @click="addTransition"
-        >
-          Add
-        </button>
-      </div>
     </div>
-  </div>
 </template>

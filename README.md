@@ -99,6 +99,7 @@ make shell       # Shell into backend container
 
 - [bootstrap.md](bootstrap.md) -- Conventions and patterns
 - [CLAUDE.md](CLAUDE.md) -- Agent shim
+- [CALLIOPE.md](CALLIOPE.md) -- Agent shim (Calliope harness)
 - [CONTRIBUTING.md](CONTRIBUTING.md) -- Contribution guide
 - [SECURITY.md](SECURITY.md) -- Security policy
 

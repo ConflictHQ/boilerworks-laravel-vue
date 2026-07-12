@@ -1,9 +1,9 @@
 {
     "$schema": "https://getcomposer.org/schema.json",
-    "name": "laravel/laravel",
+    "name": "conflicthq/boilerworks-laravel-vue",
     "type": "project",
-    "description": "The skeleton application for the Laravel framework.",
-    "keywords": ["laravel", "framework"],
+    "description": "Boilerworks Laravel + Vue template: Laravel 12, Inertia.js v3, Vue 3, Filament v5.",
+    "keywords": ["laravel", "vue", "inertia", "boilerworks", "template"],
     "license": "MIT",
     "require": {
         "php": "^8.2",

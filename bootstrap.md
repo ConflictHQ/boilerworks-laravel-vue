@@ -55,6 +55,12 @@ Browser
 - Permission middleware on every controller
 - Frontend: `Can` component checks `page.props.auth.permissions`
 
+### Filament Admin
+- Filament v5 panel at `/admin` (`AdminPanelProvider`, id `admin`)
+- Access restricted to the admin role via `User::canAccessPanel()`
+- Resources in `app/Filament/Resources` (Users, Items, Categories, FormDefinitions, WorkflowDefinitions), auto-discovered
+- Filament is for back-office admin only — end-user UI stays in Inertia/Vue pages
+
 ### Feature Toggles
 - `config/features.php` — env-based booleans
 - Routes conditionally loaded in `AppServiceProvider`
@@ -69,7 +75,7 @@ Browser
 ### Docker
 - `make up` starts everything: PHP-FPM + Nginx, Vite, Postgres, Redis, MinIO, Mailpit, queue worker
 - Health check at `/up`, status at `/status`
-- Ports: App 8000, Vite 5173, Postgres 5436, Redis 6383, MinIO 9002/9003, Mailpit 8026
+- Ports: App 8000, Vite 5173, Postgres 5432, Redis 6379, MinIO 9000/9001, Mailpit 8025 (SMTP 1025)
 
 ### Linting
 - PHP: Laravel Pint (PSR-12 preset)

@@ -25,9 +25,9 @@ We will acknowledge your report within 48 hours and aim to release a fix within 
 
 When deploying Boilerworks:
 
-- Change all default credentials (database, MinIO, session secret)
-- Use HTTPS in production
-- Set `NODE_ENV=production`
-- Configure `CORS_ORIGINS` to your domain only
-- Use strong Auth0 credentials
+- Set `APP_ENV=production` and `APP_DEBUG=false`
+- Generate a fresh `APP_KEY` (`php artisan key:generate`) — never reuse the template's key
+- Change all default credentials: Postgres (`DB_PASSWORD`), Redis (`REDIS_PASSWORD`), MinIO (`AWS_ACCESS_KEY_ID`/`AWS_SECRET_ACCESS_KEY`)
+- Remove or re-password the seeded users (`admin@boilerworks.dev`, etc.) before exposing the app
+- Use HTTPS in production and set `SESSION_SECURE_COOKIE=true`
 - Review the security hardening in `bootstrap.md`

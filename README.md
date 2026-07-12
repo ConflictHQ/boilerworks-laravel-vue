@@ -27,6 +27,7 @@
 - Items + Categories CRUD with data tables, pagination, flash messages
 - Forms engine: JSON schema builder, dynamic form renderer, server-side validation
 - Workflow engine: state machine with conditions, async action dispatch, audit trail
+- Filament v5 admin panel at `/admin` (admin role only)
 - Feature toggles (env-based, conditionally loaded routes)
 - Boilerworks dark admin theme with sidebar navigation
 - Docker Compose: PHP-FPM + Nginx, Vite HMR, Postgres, Redis, MinIO, Mailpit, queue worker
